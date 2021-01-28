@@ -39,7 +39,7 @@ public class Stack {
 	}
 	
 	public void printStack() {
-		for(int i=0;i<=top;i++) {
+		for(int i=top;i>=0;i--) {
 			System.out.println(arr[i]);
 		}
 	}
