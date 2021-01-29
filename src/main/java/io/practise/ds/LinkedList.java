@@ -53,14 +53,14 @@ public class LinkedList {
 	}
 	
 	public LinkedList remove(LinkedList list, int data) {
-		Node last = list.head;
-		Node prev = list.head;
-		boolean found = false;
 		if(list.head.data == data) {
 			System.out.println("Removing " + data);
 			list.head = list.head.next;
 			return list;
 		}
+		Node last = list.head.next;
+		Node prev = list.head;
+		boolean found = false;
 		while (last != null) {
 			if(last.data == data) {
 				System.out.println("Removing " + data);

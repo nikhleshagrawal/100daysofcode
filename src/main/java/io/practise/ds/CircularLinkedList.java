@@ -1,10 +1,10 @@
 package io.practise.ds;
 
 /*
- * We add a pointer to the previous node in a doubly-linked list. 
- * Thus, we can go in either direction: forward or backward.
+ * A circular linked list is a variation of a linked list in which the last element is linked to the first element. 
+ * This forms a circular loop.
  */
-public class DoublyLinkedList {
+public class CircularLinkedList {
 
 	// use to point to head of the list
 	Node head;
@@ -13,34 +13,34 @@ public class DoublyLinkedList {
 		int data;
 		// point to next in the list
 		Node next;
-		Node prev;
 
 		Node(int data) {
 			this.data = data;
 		}
 	}
 
-	public DoublyLinkedList insert(DoublyLinkedList list, int data) {
+	public CircularLinkedList insert(CircularLinkedList list, int data) {
 
 		Node n = new Node(data);
 		System.out.println("Inserting " + data);
 		if (list.head == null) {
 			list.head = n;
+			n.next = head;
 		} else {
 			Node last = list.head;
-			while (last.next != null) {
+			while (last.next != head) {
 				last = last.next;
 			}
 			last.next = n;
-			n.prev= last;
+			n.next = head;
 		}
 
 		return list;
 	}
 
-	public Node search(DoublyLinkedList list, int data) {
+	public Node search(CircularLinkedList list, int data) {
 		Node last = list.head;
-		while (last != null) {
+		while (last != head) {
 			if(last.data == data) {
 				return last;
 			}
@@ -50,7 +50,7 @@ public class DoublyLinkedList {
 		return null;
 	}
 	
-	public DoublyLinkedList remove(DoublyLinkedList list, int data) {
+	public CircularLinkedList remove(CircularLinkedList list, int data) {
 		
 		if(list.head.data == data) {
 			System.out.println("Removing " + data);
@@ -59,36 +59,36 @@ public class DoublyLinkedList {
 		}
 		
 		Node last = list.head.next;
+		Node prev = list.head;
 		boolean found = false;
-		while (last != null) {
+		while (last != head) {
 			if(last.data == data) {
 				System.out.println("Removing " + data);
+				prev.next = last.next;
 				found  =true;
-				last.prev.next = last.next;
-				if(last.next!=null) {
-					last.next.prev = last.prev;	
-				}
-				
 				break; 
 			}
+			prev = last;
 			last = last.next;
 		}
 		if(!found) {
 			System.out.println("Not found " + data);	
 		}
+		
 		return list;
 	}
 
-	public void displayList(DoublyLinkedList list) {
+	public void displayList(CircularLinkedList list) {
 		Node last = list.head;
-		while (last != null) {
+		while (last.next != head) {
 			System.out.println(last.data);
 			last = last.next;
 		}
+		System.out.println(last.data);
 	}
 
 	public static void main(String[] args) {
-		DoublyLinkedList list = new DoublyLinkedList();
+		CircularLinkedList list = new CircularLinkedList();
 		list = list.insert(list, 1);
 		list = list.insert(list, 2);
 		list = list.insert(list, 3);
