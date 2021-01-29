@@ -13,7 +13,7 @@ public class LinkedList {
 	// use to point to head of the list
 	Node head;
 
-	static class Node {
+	class Node {
 		int data;
 		// point to next in the list
 		Node next;
@@ -90,9 +90,9 @@ public class LinkedList {
 		LinkedList list = new LinkedList();
 		list = list.insert(list, 1);
 		list = list.insert(list, 2);
-		//list = list.insert(list, 3);
-		//list = list.insert(list, 4);
-		//list = list.insert(list, 5);
+		list = list.insert(list, 3);
+		list = list.insert(list, 4);
+		list = list.insert(list, 5);
 
 		list.displayList(list);
 		

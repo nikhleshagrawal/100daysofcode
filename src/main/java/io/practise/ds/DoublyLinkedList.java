@@ -9,7 +9,7 @@ public class DoublyLinkedList {
 	// use to point to head of the list
 	Node head;
 
-	static class Node {
+	class Node {
 		int data;
 		// point to next in the list
 		Node next;
