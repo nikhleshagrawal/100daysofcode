@@ -1,5 +1,9 @@
 package io.practise.ds;
 
+/*
+ * In a double ended queue, insertion and removal of elements can be performed from either from the front or rear. 
+ * Thus, it does not follow the FIFO (First In First Out) rule.
+ */
 public class DeQueue {
 
 	int arr[];
@@ -34,11 +38,8 @@ public class DeQueue {
 		}
 		if ((rear == capacity - 1) && front != 0) {
 			rear = -1;
-			arr[++rear] = x;
-		} else {
-			arr[++rear] = x;
-		}
-
+		} 
+		arr[++rear] = x;
 	}
 	
 	public void enqueueFront(int x) {
@@ -72,10 +73,7 @@ public class DeQueue {
 		if (front == capacity - 1) {
 			front = 0;
 		} else {
-
 			front++;
-		
-		
 		}
 	}
 	
@@ -90,7 +88,6 @@ public class DeQueue {
 		if (rear == 0) {
 			rear = capacity -1;
 		} else {
-
 			rear--;
 		}
 	}
@@ -127,7 +124,6 @@ public class DeQueue {
 	    dq.dequeueFront();
 	    System.out.println("After dequeueFront ");
 	    dq.printQueue();
-	    
 	}
 
 }

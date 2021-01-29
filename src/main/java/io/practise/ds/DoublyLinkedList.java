@@ -1,14 +1,10 @@
 package io.practise.ds;
 
 /*
- * A linked list data structure includes a series of connected nodes. 
- * Here, each node store the data and the address of the next node
- * You have to start somewhere, so we give the address of the first node a special name called HEAD.
- * Also, the last node in the linked list can be identified because its next portion points to NULL.
- * You might have played the game Treasure Hunt, where each clue includes the information about the next clue. 
- * That is how the linked list operates.
+ * We add a pointer to the previous node in a doubly-linked list. 
+ * Thus, we can go in either direction: forward or backward.
  */
-public class LinkedList {
+public class DoublyLinkedList {
 
 	// use to point to head of the list
 	Node head;
@@ -17,13 +13,14 @@ public class LinkedList {
 		int data;
 		// point to next in the list
 		Node next;
+		Node prev;
 
 		Node(int data) {
 			this.data = data;
 		}
 	}
 
-	public LinkedList insert(LinkedList list, int data) {
+	public DoublyLinkedList insert(DoublyLinkedList list, int data) {
 
 		Node n = new Node(data);
 		System.out.println("Inserting " + data);
@@ -35,12 +32,13 @@ public class LinkedList {
 				last = last.next;
 			}
 			last.next = n;
+			n.prev= last;
 		}
 
 		return list;
 	}
 
-	public Node search(LinkedList list, int data) {
+	public Node search(DoublyLinkedList list, int data) {
 		Node last = list.head;
 		while (last != null) {
 			if(last.data == data) {
@@ -52,9 +50,8 @@ public class LinkedList {
 		return null;
 	}
 	
-	public LinkedList remove(LinkedList list, int data) {
+	public DoublyLinkedList remove(DoublyLinkedList list, int data) {
 		Node last = list.head;
-		Node prev = list.head;
 		boolean found = false;
 		if(list.head.data == data) {
 			System.out.println("Removing " + data);
@@ -64,21 +61,23 @@ public class LinkedList {
 		while (last != null) {
 			if(last.data == data) {
 				System.out.println("Removing " + data);
-				prev.next = last.next;
 				found  =true;
+				last.prev.next = last.next;
+				if(last.next!=null) {
+					last.next.prev = last.prev;	
+				}
+				
 				break; 
 			}
-			prev = last;
 			last = last.next;
 		}
 		if(!found) {
 			System.out.println("Not found " + data);	
 		}
-		
 		return list;
 	}
 
-	public void displayList(LinkedList list) {
+	public void displayList(DoublyLinkedList list) {
 		Node last = list.head;
 		while (last != null) {
 			System.out.println(last.data);
@@ -87,12 +86,12 @@ public class LinkedList {
 	}
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		DoublyLinkedList list = new DoublyLinkedList();
 		list = list.insert(list, 1);
 		list = list.insert(list, 2);
-		//list = list.insert(list, 3);
-		//list = list.insert(list, 4);
-		//list = list.insert(list, 5);
+		list = list.insert(list, 3);
+		list = list.insert(list, 4);
+		list = list.insert(list, 5);
 
 		list.displayList(list);
 		

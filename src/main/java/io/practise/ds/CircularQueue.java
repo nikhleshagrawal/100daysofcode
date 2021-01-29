@@ -1,5 +1,11 @@
 package io.practise.ds;
 
+/*
+ * In a circular queue, the last element points to the first element making a circular link.
+ * The main advantage of a circular queue over a simple queue is better memory utilization. 
+ * If the last position is full and the first position is empty, we can insert an element in the first position. 
+ * This action is not possible in a simple queue.
+ */
 public class CircularQueue {
 
 	int arr[];
@@ -34,11 +40,8 @@ public class CircularQueue {
 		}
 		if ((rear == capacity - 1) && front != 0) {
 			rear = -1;
-			arr[++rear] = x;
-		} else {
-			arr[++rear] = x;
-		}
-
+		} 
+		arr[++rear] = x;
 	}
 
 	public void dequeue() {

@@ -1,5 +1,18 @@
 package io.practise.ds;
 
+/*
+ * A stack is a useful data structure in programming. It is just like a pile of plates kept on top of each other.
+ * LIFO Principle of Stack
+ * In programming terms, putting an item on top of the stack is called push and removing an item is called pop.
+ * A stack is an object (an abstract data type - ADT) that allows the following operations:
+
+ * Push: Add an element to the top of a stack
+ * Pop: Remove an element from the top of a stack
+ * IsEmpty: Check if the stack is empty
+ * IsFull: Check if the stack is full
+ * Peek: Get the value of the top element without removing it
+ * 
+ */
 public class Stack {
 
 	int arr[];
