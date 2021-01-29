@@ -1,4 +1,4 @@
-package io.practise.ds;
+package io.practise.ds.queue;
 
 /*
  * In a circular queue, the last element points to the first element making a circular link.

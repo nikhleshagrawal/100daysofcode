@@ -1,4 +1,4 @@
-package io.practise.ds;
+package io.practise.ds.list;
 
 /*
  * A circular linked list is a variation of a linked list in which the last element is linked to the first element. 

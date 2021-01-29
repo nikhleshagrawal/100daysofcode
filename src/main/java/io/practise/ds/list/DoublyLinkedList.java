@@ -1,4 +1,4 @@
-package io.practise.ds;
+package io.practise.ds.list;
 
 /*
  * We add a pointer to the previous node in a doubly-linked list. 

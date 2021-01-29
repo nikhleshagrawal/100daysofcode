@@ -1,4 +1,4 @@
-package io.practise.ds;
+package io.practise.ds.queue;
 
 /*
  * A queue is a useful data structure in programming. It is similar to the ticket queue outside a cinema hall, 

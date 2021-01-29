@@ -1,4 +1,4 @@
-package io.practise.ds;
+package io.practise.ds.list;
 
 /*
  * A linked list data structure includes a series of connected nodes. 
