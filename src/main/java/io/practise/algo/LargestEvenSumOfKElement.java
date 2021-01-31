@@ -4,6 +4,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * Given an array arr[] consisting of N positive integers, and an integer K, 
+ * the task is to find the maximum possible even sum of any subsequence of size K. 
+ * If it is not possible to find any even sum subsequence of size K, then print -1.
+
+ * Examples:
+
+ * Input: arr[] ={4, 2, 6, 7, 8}, K = 3
+ * Output: 18
+ * Explanation: Subsequence having maximum even sum of size K( = 3 ) is {4, 6, 8}.
+ * Therefore, the required output is 4 + 6 + 8 = 18.
+
+ * Input: arr[] = {5, 5, 1, 1, 3}, K = 3
+ * Output: -1
+ *
+ */
 public class LargestEvenSumOfKElement {
 
 	public static void main(String[] args) {
