@@ -17,8 +17,7 @@ public class PriceMatching {
 		for(int i=0;i<prices.length;i++) {
 			double newPrice1 = Double.valueOf(df.format((Double.valueOf(df.format(prices[i])) + 0.01)));
 			double newPrice2 = Double.valueOf(df.format((Double.valueOf(df.format(prices[i])) - 0.01)));
-			double total = prices[i] * stocks[i];
-			double target = Double.valueOf(df.format(total));
+			double target = Double.valueOf(df.format(prices[i] * stocks[i]));
 			
 			System.out.println("Target "+  target);
 			int result = findBestCombination(target,stocks[i],newPrice1,newPrice2);
