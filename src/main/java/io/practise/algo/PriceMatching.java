@@ -10,11 +10,12 @@ public class PriceMatching {
 	private static DecimalFormat df = new DecimalFormat("0.00");
 	public static void main(String[] args) {
 		double[] prices = {98.65664};
+		//double[] prices = {98.65614};
 		int[] stocks = {100};
 		
 		
 		for(int i=0;i<prices.length;i++) {
-			double newPrice1 = Double.valueOf(df.format((Double.valueOf(df.format(prices[i])))));
+			double newPrice1 = Double.valueOf(df.format((Double.valueOf(df.format(prices[i])) + 0.01)));
 			double newPrice2 = Double.valueOf(df.format((Double.valueOf(df.format(prices[i])) - 0.01)));
 			double total = prices[i] * stocks[i];
 			double target = Double.valueOf(df.format(total));
@@ -40,7 +41,7 @@ public class PriceMatching {
 			if(result < target) {
 				i=m+1;
 			}else {
-				l = l -1;
+				l = m -1;
 			}
 		}
 		return m;
